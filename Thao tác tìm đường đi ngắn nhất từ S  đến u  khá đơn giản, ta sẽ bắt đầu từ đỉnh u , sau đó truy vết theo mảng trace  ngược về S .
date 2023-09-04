@@ -1,0 +1,12 @@
+vector<int> trace_path(vector<int> &trace, int S, int u) {
+    if (u != S && trace[u] == -1) return vector<int>(0); // không có đường đi
+
+    vector<int> path;
+    while (u != -1) { // truy vết ngược từ u về S
+        path.push_back(u);
+        u = trace[u];
+    }
+    reverse(path.begin(), path.end()); // cần reverse vì đường đi lúc này là từ u về S
+    
+    return path;
+}
